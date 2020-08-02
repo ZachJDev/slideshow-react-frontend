@@ -7,21 +7,6 @@ import Slide from './Slide'
 import './View.css'
 
 class View extends Component { 
-    constructor(props) {
-        super(props);
-        this.state = {
-            enter:false
-        }
-    }
-
-
-    buttonClick = () => {
-        console.log(this.state.enter)
-        this.setState(state => ({
-        enter: !state.enter
-        }))
-    }
-
     togglePlay = (event) => {
         this.props.handlePlaying()
     }
