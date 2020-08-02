@@ -1,0 +1,12 @@
+.nav-wrap {
+    background-color: rgba(0, 0, 0, .01);
+    /* height: 90vh; */
+    padding: 90px 10px;
+    width: 70px;
+    display: flex;
+    justify-content: center;
+}
+
+.icon {
+    font-size: 3rem;
+}
