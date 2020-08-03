@@ -37,7 +37,7 @@ class Slideshow extends Component {
     FD.set("searchTerm", `${this.state.input}`);
     axios({
       method: "post",
-      url: "http://localhost:3000",
+      url: "https://open-access-slideshow.herokuapp.com/",
       data: FD,
     }).then((r) => {
       this.setState({ images: DoublyLinkedList.fromArray(r.data, true) });
@@ -46,7 +46,7 @@ class Slideshow extends Component {
           this.setState((state) => ({
             currentImage: state.currentImage.next
           }));
-        }, 2000),
+        }, 8000),
 
         tick: 0,
         playing: true,
@@ -65,7 +65,7 @@ class Slideshow extends Component {
           this.setState((state) => ({
             currentImage: state.currentImage.next
           }));
-        }, 2000),
+        }, 8000),
       });
     }
     this.setState((state) => ({ playing: !state.playing }));
