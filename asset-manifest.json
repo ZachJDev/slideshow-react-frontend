@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/slideshow-react-frontend/static/css/main.5d278fdc.chunk.css",
+    "main.js": "/slideshow-react-frontend/static/js/main.9f587e85.chunk.js",
+    "main.js.map": "/slideshow-react-frontend/static/js/main.9f587e85.chunk.js.map",
+    "runtime-main.js": "/slideshow-react-frontend/static/js/runtime-main.1bb4f67d.js",
+    "runtime-main.js.map": "/slideshow-react-frontend/static/js/runtime-main.1bb4f67d.js.map",
+    "static/js/2.abb9ca28.chunk.js": "/slideshow-react-frontend/static/js/2.abb9ca28.chunk.js",
+    "static/js/2.abb9ca28.chunk.js.map": "/slideshow-react-frontend/static/js/2.abb9ca28.chunk.js.map",
+    "index.html": "/slideshow-react-frontend/index.html",
+    "precache-manifest.fc5d81265c4cd8451caf1d6d3a8dbef1.js": "/slideshow-react-frontend/precache-manifest.fc5d81265c4cd8451caf1d6d3a8dbef1.js",
+    "service-worker.js": "/slideshow-react-frontend/service-worker.js",
+    "static/css/main.5d278fdc.chunk.css.map": "/slideshow-react-frontend/static/css/main.5d278fdc.chunk.css.map",
+    "static/js/2.abb9ca28.chunk.js.LICENSE.txt": "/slideshow-react-frontend/static/js/2.abb9ca28.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/slideshow-react-frontend/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1bb4f67d.js",
+    "static/js/2.abb9ca28.chunk.js",
+    "static/css/main.5d278fdc.chunk.css",
+    "static/js/main.9f587e85.chunk.js"
+  ]
+}
