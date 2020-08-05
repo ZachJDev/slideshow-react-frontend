@@ -14,10 +14,9 @@ class Search extends Component {
 
     render() {
         return (
-            
             <form>
-                <input type="text" value={this.props.input} onChange={this.handleType} /> 
-                <button onClick={this.handleSubmit}>Submit</button>
+                <input className="search-bar" type="text" value={this.props.input} onChange={this.handleType} /> 
+                <button className="search-button" onClick={this.handleSubmit}>Submit</button>
             </form>
         )
     }

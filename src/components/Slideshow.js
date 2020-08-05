@@ -44,14 +44,15 @@ class Slideshow extends Component {
       this.setState({
         timer: setInterval(() => {
           this.setState((state) => ({
-            currentImage: state.currentImage.next
+            currentImage: state.currentImage.next,
+            count: state.count + 1
           }));
         }, 8000),
 
         tick: 0,
         playing: true,
       });
-      this.setState((state) => ({ currentImage: state.images.head }));
+      this.setState((state) => ({ currentImage: state.images.head , count: 0 }));
     });
   };
 
@@ -63,7 +64,8 @@ class Slideshow extends Component {
       this.setState({
         timer: setInterval(() => {
           this.setState((state) => ({
-            currentImage: state.currentImage.next
+            currentImage: state.currentImage.next,
+            count: state.count + 1
           }));
         }, 8000),
       });
@@ -75,9 +77,9 @@ class Slideshow extends Component {
     clearInterval(this.state.timer);
     this.setState({playing: false})
     if (goFoward) {
-      this.setState((state) => ({  currentImage: state.currentImage.next}));
+      this.setState((state) => ({  currentImage: state.currentImage.next, count: state.count + 1}));
     } else {
-      this.setState((state) => ({  currentImage: state.currentImage.prev }));
+      this.setState((state) => ({  currentImage: state.currentImage.prev, count: state.count + 1 }));
     }
 
   };
@@ -85,6 +87,7 @@ class Slideshow extends Component {
   type = (input) => this.setState({ input });
 
   render() {
+    // let startingImage = new Object(this.state.currentImage?.val)
     return (
       <div id="wrapper">
         <Search
@@ -107,6 +110,7 @@ class Slideshow extends Component {
             currentImage={this.state.currentImage?.val}
             nextImage={this.state.currentImage?.next.val}
             begin={this.state.images.length > 0}
+            count = {this.state.count}
           />
           <Nav
             begin={this.state.images.length > 0}

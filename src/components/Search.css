@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+form {
+    position: absolute;
+    padding-top: 1rem;
+    padding-left: 1rem;
+}
+.search-bar {
+    height: 1rem;
+    font-size: 1rem;
+}
+
+.search-button {
+    width: 100px;
+    height: 1.3rem;
+    margin: 1rem;
+    font-family: "josefin Sans", sans-serif;
+}

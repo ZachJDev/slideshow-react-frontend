@@ -8,13 +8,7 @@ import playButton from '../img/play.svg'
 import pauseButton from '../img/pause.svg'
 
 class View extends Component { 
-    constructor(props) {
-        super(props);
 
-        this.state = {
-            startingImage: this.props.currentImage.url
-        }
-    }
     togglePlay = (event) => {
         this.props.handlePlaying()
     }
@@ -22,8 +16,7 @@ class View extends Component {
     render() {
         const hide = this.props.playing ? "" : "hide " 
         const button = this.props.playing ?  pauseButton : playButton
-        const restart = this.props.currentImage.url === this.state.startingImage ? "restart" : ''
-        console.log(restart)
+        const restart = this.props.count === 0? "restart" : '' // Still looking for a better way to handle this...
         return (
            (this.props.begin &&
            <div className={"view-box"} onClick={this.togglePlay}>
