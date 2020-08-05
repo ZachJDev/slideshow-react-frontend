@@ -1,12 +1,5 @@
-
-
-.slide.next-slide {
-    opacity: 0;
-}
-
-/* .next-slide {
-    opacity: 0;
-} */
+/* This css file holds only the transition effects.
+CSS for the images and view box can be found in ./View.css */
 
 .fade-enter {
     opacity: 0;

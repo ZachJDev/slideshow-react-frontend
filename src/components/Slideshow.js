@@ -80,15 +80,6 @@ class Slideshow extends Component {
       this.setState((state) => ({  currentImage: state.currentImage.prev }));
     }
 
-    // if (this.state.playing) {
-    //   this.setState({
-    //     timer: setInterval(() => {
-    //       this.setState((state) => ({
-    //         currentImage: state.currentImage.next
-    //       }));
-    //     }, 2000),
-    //   });
-    // }
   };
 
   type = (input) => this.setState({ input });

@@ -9,10 +9,6 @@
     margin: 0 auto;
 }
 
-.hide {
-    opacity: 0;
-}
-
 
 .slide {
     /* opacity: 0; */
@@ -27,9 +23,28 @@
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     max-height: 80vh;
     max-width: 100%;
-
+    
 }
 .slide.current-slide {
     opacity: 1;
 }
 
+.slide.next-slide, .slide.hide, .slide.restart {
+    opacity: 0;
+}
+
+.play-button {
+    fill: aliceblue;
+    display: none;
+    z-index: 5;
+    height: 70px;
+    width: 70px;
+}
+.view-box:hover{
+    filter: brightness(.7);
+    -webkit-filter: brightness(.7);
+}
+
+.view-box:hover .play-button {
+    display: block;
+}
