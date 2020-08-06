@@ -16,7 +16,7 @@ class View extends Component {
     render() {
         const hide = this.props.playing ? "" : "hide " 
         const button = this.props.playing ?  pauseButton : playButton
-        const restart = this.props.count === 0? "restart" : '' // Still looking for a better way to handle this...
+        const restart = this.props.isNew ? "restart" : '' // Finally came up with a Boolean, though still less than perfect?
         return (
            (this.props.begin &&
            <div className={"view-box"} onClick={this.togglePlay}>

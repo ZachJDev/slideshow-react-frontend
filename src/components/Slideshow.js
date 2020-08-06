@@ -18,6 +18,7 @@ class Slideshow extends Component {
       input: "",
       playing: false,
       currentImage: null,
+      isNew: true
     };
   }
   // The below version of loop didn't allow users to
@@ -45,14 +46,12 @@ class Slideshow extends Component {
         timer: setInterval(() => {
           this.setState((state) => ({
             currentImage: state.currentImage.next,
-            count: state.count + 1
+            isNew: false
           }));
         }, 8000),
-
-        tick: 0,
         playing: true,
       });
-      this.setState((state) => ({ currentImage: state.images.head , count: 0 }));
+      this.setState((state) => ({ currentImage: state.images.head,}));
     });
   };
 
@@ -60,12 +59,12 @@ class Slideshow extends Component {
     if (this.state.playing) clearInterval(this.state.timer);
     else {
       // Combining the two STATEments below caused some odd problems.
-      this.setState((state) => ({currentImage: state.currentImage.next}));
+      this.setState((state) => ({currentImage: state.currentImage.next, isNew: false}));
       this.setState({
         timer: setInterval(() => {
           this.setState((state) => ({
             currentImage: state.currentImage.next,
-            count: state.count + 1
+            isNew: false
           }));
         }, 8000),
       });
@@ -77,9 +76,11 @@ class Slideshow extends Component {
     clearInterval(this.state.timer);
     this.setState({playing: false})
     if (goFoward) {
-      this.setState((state) => ({  currentImage: state.currentImage.next, count: state.count + 1}));
+      // I added isNew to this setState (and in the PlayPause above) because without it, skipping images before the timer
+      // Had triggered once would keep their transitions from playing.
+      this.setState((state) => ({  currentImage: state.currentImage.next, isNew: false }));
     } else {
-      this.setState((state) => ({  currentImage: state.currentImage.prev, count: state.count + 1 }));
+      this.setState((state) => ({  currentImage: state.currentImage.prev, isNew: false}));
     }
 
   };
@@ -110,7 +111,7 @@ class Slideshow extends Component {
             currentImage={this.state.currentImage?.val}
             nextImage={this.state.currentImage?.next.val}
             begin={this.state.images.length > 0}
-            count = {this.state.count}
+            isNew = {this.state.isNew}
           />
           <Nav
             begin={this.state.images.length > 0}

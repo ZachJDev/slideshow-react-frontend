@@ -7,6 +7,10 @@
     justify-content: center;
 }
 
+.nav-wrap:hover {
+    background-color: rgba(0, 0, 0, .3);
+}
+
 .icon {
     font-size: 3rem;
 }
