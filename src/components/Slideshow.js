@@ -50,6 +50,7 @@ class Slideshow extends Component {
           }));
         }, 8000),
         playing: true,
+        isNew: true,
       });
       this.setState((state) => ({ currentImage: state.images.head,}));
     });
