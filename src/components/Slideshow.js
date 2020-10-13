@@ -18,11 +18,13 @@ class Slideshow extends Component {
       input: "",
       playing: false,
       currentImage: null,
-      isNew: true
+      isNew: true,
+      isLoading: false
     };
   }
   // The below version of loop didn't allow users to
-  // Navigate backwards from tick 0.
+  // Navigate backwards from tick 0:
+
   // loop = (num) => num % this.state.images.length;
 
   loop = (num) => {
@@ -33,33 +35,39 @@ class Slideshow extends Component {
   };
 
   sendRequest = () => {
+    this.setState({isLoading: true})
     clearInterval(this.state.timer);
-    const FD = new FormData();
-    FD.set("searchTerm", `${this.state.input}`);
-    axios({
-      method: "post",
-      url: "https://open-access-slideshow.herokuapp.com/",
-      data: FD,
-    }).then((r) => {
-      this.setState({ images: DoublyLinkedList.fromArray(r.data, true) });
-      this.setState({
-        timer: setInterval(() => {
-          this.setState((state) => ({
-            currentImage: state.currentImage.next,
-            isNew: false
-          }));
-        }, 8000),
-        playing: true,
-        isNew: true,
+    // Added a bit of a delay to actually show the loading animation.
+    setTimeout(() => {
+      const FD = new FormData();
+      FD.set("searchTerm", `${this.state.input}`);
+      axios({
+        method: "post",
+        url: "https://open-access-slideshow.herokuapp.com/",
+        data: FD,
+      }).then((r) => {
+        this.setState({ images: DoublyLinkedList.fromArray(r.data, true) });
+        this.setState({
+          timer: setInterval(() => {
+            this.setState((state) => ({
+              currentImage: state.currentImage.next,
+              isNew: false
+            }));
+          }, 8000),
+          playing: true,
+          isNew: true,
+          isLoading: false,
+        });
+        this.setState((state) => ({ currentImage: state.images.head,}));
       });
-      this.setState((state) => ({ currentImage: state.images.head,}));
-    });
+    }, 1500)
+    
   };
 
   playPause = () => {
     if (this.state.playing) clearInterval(this.state.timer);
     else {
-      // Combining the two STATEments below caused some odd problems.
+      // Combining the STATEments below caused some odd problems.
       this.setState((state) => ({currentImage: state.currentImage.next, isNew: false}));
       this.setState({
         timer: setInterval(() => {
@@ -97,6 +105,7 @@ class Slideshow extends Component {
           input={this.state.input}
           handleInput={this.type}
         />
+        
         {( this.state.currentImage &&
         <div className="slideshow">
           <Nav
@@ -126,6 +135,9 @@ class Slideshow extends Component {
           title={this.state.currentImage?.val.title}
           source={this.state.currentImage?.val.source}
         />
+        {
+          this.state.isLoading ? <div className="loading"><div className="inner"></div><div className="outer"></div></div> : null
+        }
       </div>
     );
   }
