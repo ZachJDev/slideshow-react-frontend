@@ -1,6 +1,6 @@
 # React Open Access Slideshow
 
-A React-based version of the [Open Access Slideshow](https://github.com/ZachJDev/open-access-slideshow-webpage).
+A React-based version of the [Open Access Slideshow](https://github.com/ZachJDev/open-access-slideshow-webpage). See the backend [here](https://github.com/ZachJDev/Open-Access-Slideshow)
 
 Click on the shown picture to play or pause the slideshow. Searches (for now) will return at most 10 images.
 
